@@ -1,18 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Ortiz - Senior Software Engineer</title>
+  <meta name="description" content="David Ortiz is a Senior Software Engineer at Mailgun by Sinch specializing in Email Deliverability with 15+ years of front-end development experience.">
+  <meta name="keywords" content="David Ortiz, software engineer, developer, front-end, React, TypeScript, email deliverability, Saint Cloud Florida">
+  <meta name="author" content="David Ortiz">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidnortiz.com">
 
-	<title>David Ortiz :: Developer :: Husband :: Father</title>
+  <meta property="og:title" content="David Ortiz - Senior Software Engineer">
+  <meta property="og:description" content="Senior Software Engineer at Mailgun by Sinch with 15+ years of experience in front-end development.">
+  <meta property="og:url" content="https://davidnortiz.com">
+  <meta property="og:type" content="website">
 
-	<!-- <link rel='icon' type='image/png' href='/favicon.png'> -->
-	<link rel='stylesheet' href='/global.css'>
-	<link rel='stylesheet' href='/build/bundle.css'>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="David Ortiz">
+  <meta name="twitter:description" content="Senior Software Engineer at Mailgun by Sinch">
 
-	<script defer src='/build/bundle.js'></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #1a1b26;
+      --bg: #24283b;
+      --fg: #a9b1d6;
+      --accent: #7aa2f7;
+      --pink: #f7768e;
+      --green: #9ece6a;
+      --yellow: #e0af68;
+      --cyan: #7dcfff;
+      --purple: #bb9af7;
+      --teal: #73daca;
+      --border: #414868;
+    }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      background: var(--bg-dark);
+      color: var(--fg);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    h1 span {
+      color: var(--pink);
+    }
+
+    .subtitle {
+      color: var(--accent);
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .subtitle::before {
+      content: '// ';
+      color: var(--border);
+    }
+
+    .section {
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section.pink { border-color: var(--pink); }
+    .section.green { border-color: var(--green); }
+    .section.yellow { border-color: var(--yellow); }
+    .section.cyan { border-color: var(--cyan); }
+    .section.purple { border-color: var(--purple); }
+
+    .section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+      color: var(--border);
+    }
+
+    .section-title::before {
+      content: '## ';
+    }
+
+    .section.pink .section-title { color: var(--pink); }
+    .section.green .section-title { color: var(--green); }
+    .section.yellow .section-title { color: var(--yellow); }
+    .section.cyan .section-title { color: var(--cyan); }
+    .section.purple .section-title { color: var(--purple); }
+
+    .profile-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .profile-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .profile-label {
+      color: var(--cyan);
+      min-width: 100px;
+    }
+
+    .profile-value {
+      color: #fff;
+    }
+
+    .bio {
+      color: #c0caf5;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: rgba(122, 162, 247, 0.15);
+      color: var(--accent);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.8rem;
+      border-radius: 3px;
+    }
+
+    .tag.pink { background: rgba(247, 118, 142, 0.15); color: var(--pink); }
+    .tag.green { background: rgba(158, 206, 106, 0.15); color: var(--green); }
+    .tag.yellow { background: rgba(224, 175, 104, 0.15); color: var(--yellow); }
+    .tag.cyan { background: rgba(125, 207, 255, 0.15); color: var(--cyan); }
+    .tag.purple { background: rgba(187, 154, 247, 0.15); color: var(--purple); }
+    .tag.teal { background: rgba(115, 218, 202, 0.15); color: var(--teal); }
+
+    .hobbies-list {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .hobby {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hobby-icon {
+      color: var(--purple);
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--pink);
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--cyan);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 14px; }
+      h1 { font-size: 2rem; }
+      .profile-row { flex-direction: column; gap: 0.25rem; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <h1>David Ortiz</h1>
+      <p class="subtitle">senior software engineer · email deliverability · hobbyist</p>
+    </header>
+
+    <section class="section pink">
+      <h2 class="section-title">Profile</h2>
+      <div class="profile-grid">
+        <div class="profile-row">
+          <span class="profile-label">Role</span>
+          <span class="profile-value">Senior Software Engineer</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Company</span>
+          <span class="profile-value"><a href="https://mailgun.com">Mailgun by Sinch</a></span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Team</span>
+          <span class="profile-value">Email Deliverability</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Stack</span>
+          <span class="profile-value">React, TypeScript</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Experience</span>
+          <span class="profile-value">15+ years</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Location</span>
+          <span class="profile-value">Saint Cloud, Florida</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">Status</span>
+          <span class="profile-value">
+            <span class="status">
+              <span class="status-dot"></span>
+              Husband & Father of 3
+            </span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section green">
+      <h2 class="section-title">About</h2>
+      <p class="bio">Senior Software Engineer at Mailgun by Sinch on the Email Deliverability team. 15+ years building web experiences with a front-end focus: I love turning complex problems into clean, intuitive interfaces. When I'm not pushing code, I'm making games or chasing around three awesome kids with my amazing wife.</p>
+    </section>
+
+    <section class="section yellow">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="tags">
+        <span class="tag">React</span>
+        <span class="tag pink">TypeScript</span>
+        <span class="tag pink">C#</span>
+        <span class="tag teal">Go</span>
+        <span class="tag">CSS/Sass</span>
+        <span class="tag teal">Node.js</span>
+        <span class="tag">Python</span>
+        <span class="tag yellow">PostgreSQL</span>
+        <span class="tag green">GraphQL</span>
+        <span class="tag pink">Git</span>
+        <span class="tag cyan">Docker</span>
+        <span class="tag">Figma</span>
+      </div>
+    </section>
+
+    <section class="section cyan">
+      <h2 class="section-title">Hobbies</h2>
+      <div class="hobbies-list">
+        <div class="hobby">
+          <span class="hobby-icon">▸</span>
+          <span>Game Development (Unity/Godot)</span>
+        </div>
+        <div class="hobby">
+          <span class="hobby-icon">▸</span>
+          <span>Digital Illustration</span>
+        </div>
+        <div class="hobby">
+          <span class="hobby-icon">▸</span>
+          <span>Family Game Night</span>
+        </div>
+        <div class="hobby">
+          <span class="hobby-icon">▸</span>
+          <span>Side Projects</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section purple">
+      <h2 class="section-title">Connect</h2>
+      <div class="tags">
+        <a href="mailto:david@davidnortiz.com" class="tag">david@davidnortiz.com</a>
+        <a href="https://github.com/yodavido" class="tag">github.com/yodavido</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>Saint Cloud, FL</span>
+      <span>© 2026</span>
+    </footer>
+  </div>
 </body>
 </html>
